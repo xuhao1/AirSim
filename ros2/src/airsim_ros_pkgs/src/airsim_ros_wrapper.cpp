@@ -73,10 +73,10 @@ void AirsimROSWrapper::initialize_airsim()
         airsim_client_images_.confirmConnection();
         airsim_client_lidar_.confirmConnection();
 
-        for (const auto& vehicle_name_ptr_pair : vehicle_name_ptr_map_) {
-            airsim_client_->enableApiControl(true, vehicle_name_ptr_pair.first); // todo expose as rosservice?
-            airsim_client_->armDisarm(true, vehicle_name_ptr_pair.first); // todo exposes as rosservice?
-        }
+        // for (const auto& vehicle_name_ptr_pair : vehicle_name_ptr_map_) {
+        //     airsim_client_->enableApiControl(true, vehicle_name_ptr_pair.first); // todo expose as rosservice?
+        //     airsim_client_->armDisarm(true, vehicle_name_ptr_pair.first); // todo exposes as rosservice?
+        // }
 
         origin_geo_point_ = get_origin_geo_point();
         // todo there's only one global origin geopoint for environment. but airsim API accept a parameter vehicle_name? inside carsimpawnapi.cpp, there's a geopoint being assigned in the constructor. by?
