@@ -60,7 +60,7 @@ else #linux
         wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo apt-get update
     fi
-    sudo apt-get install -y clang-18 clang++-18 libc++-18-dev libc++abi-18-dev
+    sudo apt-get install -y clang-15 clang++-15 libc++-15-dev libc++abi-15-dev
 fi
 
 if ! which cmake; then

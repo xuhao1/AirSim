@@ -64,11 +64,11 @@ if [ "$(uname)" == "Darwin" ]; then
     export CXX="$(brew --prefix)/opt/llvm/bin/clang++"
 else
     if $gcc; then
-        export CC="gcc-18"
-        export CXX="g++-18"
+        export CC="gcc-15"
+        export CXX="g++-15"
     else
-        export CC="clang-18"
-        export CXX="clang++-18"
+        export CC="clang-15"
+        export CXX="clang++-15"
     fi
 fi
 
