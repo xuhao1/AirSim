@@ -47,8 +47,10 @@ set(INCLUDE_DIRS include
   ${AIRSIM_ROOT}/MavLinkCom/common_utils
   ${OpenCV_INCLUDE_DIRS}
   )
-include_directories(${INCLUDE_DIRS})
-
+include_directories(${INCLUDE_DIRS}
+$<INSTALL_INTERFACE:include>
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
 add_library(airsim_settings_parser src/airsim_settings_parser.cpp)
 target_link_libraries(airsim_settings_parser AirLib)
 
@@ -59,6 +61,7 @@ ament_target_dependencies(pd_position_controller_simple
   nav_msgs
   geometry_msgs
   airsim_interfaces
+  tf2_geometry_msgs
 )
 
 add_library(airsim_ros src/airsim_ros_wrapper.cpp)
@@ -72,6 +75,8 @@ ament_target_dependencies(airsim_ros
   tf2_ros
   cv_bridge
   airsim_interfaces
+  mavros_msgs
+  std_srvs
 )
 
 add_executable(airsim_node src/airsim_node.cpp)
